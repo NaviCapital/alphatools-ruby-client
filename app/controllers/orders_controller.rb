@@ -1,11 +1,4 @@
-class OrdersController < ApplicationController
-  def list
-    puts "id | instrument | side | qty"
-    load_orders.each do |k, v|
-      puts [k, v["instrument_id"], v["side"], v["quantity"]].join(" - ")
-    end
-  end
-
+class OrdersController < BaseController
   def import_from_csv
     csv_path = "data/orders.csv"
     options = { headers: true, header_converters: :symbol }
@@ -22,7 +15,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def load_orders
-    post("execution", "get_order_info")
+  def load_elements
+    post("execution", "get_order_info", start_date: today, end_date: today)
   end
 end
