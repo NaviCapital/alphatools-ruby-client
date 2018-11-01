@@ -5,11 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Local File",
+      "name": "Run App",
       "type": "Ruby",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/import_lendings.rb"
+      "program": "${workspaceRoot}/app.rb"
+    },
+    {
+      "name": "Run Current File",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${file}"
     },
   ]
 }
